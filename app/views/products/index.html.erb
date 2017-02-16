@@ -1,0 +1,14 @@
+<% if flash[:notice] %> 
+  <%= flash[:notice] %> 
+<% end %>
+
+<h1>List of products on user --> <%= @user.name %></h1>
+<ul>
+	<% @user.products.each do |product| %>
+		<li>
+			<%= product.title %> -
+			<%= product.description %> -
+			<%= product.deadline %> 
+		</li>
+	<% end %>
+</ul>

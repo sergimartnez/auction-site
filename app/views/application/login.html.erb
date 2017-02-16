@@ -1,0 +1,11 @@
+<h1>User access:</h1>
+<%= form_for @user, url: "validate_user" do |f| %>
+	<%= f.label :email_address %> 
+  <%= f.text_field :email_address %> 
+  <br> 
+  <%= f.label :password %> 
+  <%= f.text_field :password%> 
+  <br> 
+
+  <%= f.submit 'Log In!' %>   
+<% end %> 

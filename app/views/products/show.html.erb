@@ -1,0 +1,39 @@
+<h1>Product Show</h1>
+<br>
+<h2>Name: <%= @product.title %></h2>
+<h3>Description: <%= @product.description %></h3>
+<h3>Deadline: <%= @product.deadline %></h3>
+<h3>Minimum Bid: <%= @product.minimum_bid %></h3>
+<br>
+
+<% if @product.bids.count>=1 %>
+	<h1>Actual Bids:</h1>
+	<ul>
+		<% @product.bids.each_with_index do |bid, index| %>
+			<% if index != @product.bids.length-1 %>
+				<li>
+					<%= bid.amount %> -
+					<%= bid.user.name %>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
+	<br>
+<% end %>
+
+<% if flash[:alert] %> 
+  <%= flash[:alert] %> 
+<% end %>
+
+<% if flash[:notice] %> 
+  <%= flash[:notice] %> 
+<% end %>
+
+<h1>Create Bids:</h1>
+<%= form_for [@user, @product, @bid] do |f| %>
+  <%= f.label :amount %> 
+  <%= f.text_field :amount%> 
+  <br> 
+
+  <%= f.submit 'Save' %>   
+<% end %> 

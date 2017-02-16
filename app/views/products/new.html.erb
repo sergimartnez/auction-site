@@ -1,0 +1,7 @@
+<h1> New time Product for <%= @user.name %></h1>
+
+<% if flash[:alert] %> 
+  <%= flash[:alert] %> 
+<% end %>
+
+<%= render 'form' %>
